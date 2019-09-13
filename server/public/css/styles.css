@@ -1,5 +1,5 @@
 body{
-    background-color: aliceblue;
+    background-color: lightgray;
     margin: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif; 
 }
@@ -45,10 +45,12 @@ input{
 
 .deleteBtn{
     float: right;
+    background-color: red;
 }
 
 .completeBtn{
     float: left;
+    background-color: lightgreen;
 }
 
 #createTask{
