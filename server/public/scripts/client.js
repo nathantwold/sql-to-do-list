@@ -26,12 +26,21 @@ function showTasks() {
     let el = $('#taskList');
     el.empty();
     for (i = 0; i < response.length; i++) {
-      el.append(`
+      if (response[i].complete == '1') {
+        el.append(`
+        <li class="completedTask">${response[i].task}
+        <button class="completeBtn">√</button>
+        <button class="deleteBtn">X</button>
+        </li>
+      `)
+      } else {
+        el.append(`
         <li class="newTask">${response[i].task}
         <button class="completeBtn">√</button>
         <button class="deleteBtn">X</button>
         </li>
       `)
+      }
     }
   }).catch(function (error) {
     console.log('error in GET', error);
@@ -49,10 +58,8 @@ function submitTask() {
     url: '/list',
     data: thisTask
   }).then(function (response) {
-    console.log('Response from server:', response);
     showTasks();
   }).catch(function (error) {
-    console.log('Error in POST', error)
     alert('unable to add to list at this time');
   });
   $('#taskIn').val('');
