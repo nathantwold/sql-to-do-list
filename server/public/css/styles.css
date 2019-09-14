@@ -18,7 +18,10 @@ h3{
 }
 
 input{
+    font-size: 15px;
     width: 50%;
+    height: 25px;
+    border-radius: 5px;
 }
 
 button{
@@ -32,6 +35,8 @@ button{
     list-style: none;
     padding: 5px;
     width: 80%;
+    margin-top: 5px;
+    margin-bottom: 5px;
     margin-right: 10%;
     margin-left: 10%;
 }
@@ -64,9 +69,14 @@ button{
 
 #addTask{
     float: right;
+    height: 25px;
+    width: 30px;
+    background-color: lightgreen;
+    font-size: large;
 }
 
 #taskList{
+    border: 1px solid black;
     padding-left: initial;
     text-align: center;
 }
