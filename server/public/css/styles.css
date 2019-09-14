@@ -21,11 +21,15 @@ input{
     width: 50%;
 }
 
+button{
+    border-radius: 5px;
+}
+
 .newTask{
     border: 1px solid red;
+    border-radius: 10px;
     background-color: lightpink;
     list-style: none;
-    border-radius: 5px;
     padding: 5px;
     width: 80%;
     margin-right: 10%;

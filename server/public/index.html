@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="vendors/jQuery.js"></script>
     <script src="scripts/client.js"></script>
-    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="css/styles.css" />
     <title>SQL To-Do List</title>
 </head>
+
 <body>
     <h1>The Task Master</h1>
     <div id="createTask">
         <h4>Create new task:
-            <input type="text" id="taskIn" placeholder="enter task here"/>
+            <input type="text" id="taskIn" placeholder="enter task here" />
             <button type="submit" id="addTask">add task</button>
-        </h4>   
+        </h4>
     </div>
     <div id="taskContainer">
         <h3>To-Do:</h3>
         <ul id="taskList">
-            <li class="newTask">placeholder<button class="completeBtn">complete</button><button class="deleteBtn">delete</button></li>
+            <li class="newTask">placeholder
+                <button class="completeBtn">complete</button>
+                <button class="deleteBtn">delete</button>
+            </li>
         </ul>
     </div>
     <footer></footer>
 </body>
+
 </html>
