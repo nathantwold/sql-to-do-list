@@ -14,5 +14,3 @@ INSERT INTO "list"("task")
 VALUES('code stuff');
 
 SELECT * FROM "list";
-
-DROP TABLE "list"

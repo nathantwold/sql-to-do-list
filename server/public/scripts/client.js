@@ -15,12 +15,11 @@ function submitTask(){
     data: thisTask
     }).then(function(response) {
       console.log('Response from server:', response);
-      renderTasks();
+      // renderTasks();
     }).catch(function(error) {
       console.log('Error in POST', error)
       alert('unable to add to list at this time');
     });
-
 }
 
 // GET tasks
