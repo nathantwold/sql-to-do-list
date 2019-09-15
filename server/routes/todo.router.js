@@ -2,6 +2,17 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
+router.delete('/:id', (req, res) => {
+    let id = req.params.id;
+    let queryText = `DELETE FROM "list" WHERE "id" = $1;`;
+    pool.query(queryText, [id]).then((result) => {
+        res.send(result);
+    }).catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    })
+});
+
 router.get('/', (req, res) => {
     let queryText = 'SELECT * FROM "list" ORDER BY "id" DESC;';
     pool.query(queryText).then(result => {

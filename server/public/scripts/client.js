@@ -7,12 +7,22 @@ function onReady() {
 
 // PUT tasks
 function completeTask() {
+  console.log('in completeTask');
 
 }
 
 // DELETE tasks
 function deleteTask() {
-
+  let taskId = $(this).parent().data('id');
+  $.ajax({
+    type: 'DELETE',
+    url: `/list/${taskId}`
+  }).then(function(response){
+    console.log(response);
+    showTasks();
+  }).catch(function(error){
+    alert('unable to delete at this time');
+  })
 }
 
 // GET tasks
@@ -28,20 +38,22 @@ function showTasks() {
     for (i = 0; i < response.length; i++) {
       if (response[i].complete == '1') {
         el.append(`
-        <li class="completedTask">${response[i].task}
+        <li data-id="${response[i].id}"class="completedTask">${response[i].task}
         <button class="completeBtn">√</button>
         <button class="deleteBtn">X</button>
         </li>
       `)
       } else {
         el.append(`
-        <li class="newTask">${response[i].task}
+        <li data-id="${response[i].id}" class="newTask">${response[i].task}
         <button class="completeBtn">√</button>
         <button class="deleteBtn">X</button>
         </li>
       `)
       }
     }
+    $('.deleteBtn').on('click', deleteTask);
+    $('.completeBtn').on('click', completeTask);
   }).catch(function (error) {
     console.log('error in GET', error);
   });
