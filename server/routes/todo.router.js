@@ -14,7 +14,7 @@ router.delete('/:id', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    let queryText = 'SELECT * FROM "list" ORDER BY "complete" ASC;';
+    let queryText = 'SELECT * FROM "list" ORDER BY "complete" ASC, "id" DESC;';
     pool.query(queryText).then(result => {
         res.send(result.rows);
     }).catch((error) => {

@@ -69,18 +69,22 @@ function showTasks() {
 
 // POST tasks
 function submitTask() {
-  $('#taskIn').val();
   let thisTask = {
     task: $('#taskIn').val()
   }
-  $.ajax({
-    type: 'POST',
-    url: '/list',
-    data: thisTask
-  }).then(function (response) {
-    showTasks();
-  }).catch(function (error) {
-    alert('unable to add to list at this time');
-  });
-  $('#taskIn').val('');
+  if (thisTask.task == '') {
+    alert('enter a task');
+    return false;
+  } else {
+    $.ajax({
+      type: 'POST',
+      url: '/list',
+      data: thisTask
+    }).then(function (response) {
+      showTasks();
+    }).catch(function (error) {
+      alert('unable to add to list at this time');
+    });
+    $('#taskIn').val('');
+  }
 }
