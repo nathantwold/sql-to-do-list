@@ -1,5 +1,5 @@
 Weekend project #3
-My first full-stack web app, built from the ground up!
+My first full-stack web app!
 
 DB (weekend-to-do-app) Setup:
 

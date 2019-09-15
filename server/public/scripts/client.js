@@ -14,9 +14,9 @@ function completeTask() {
     data: {
       complete: '1'
     }
-  }).then(function(response){
+  }).then(function (response) {
     showTasks();
-  }).catch(function(error){
+  }).catch(function (error) {
     alert('can not complete at this time');
   })
 }
@@ -27,9 +27,9 @@ function deleteTask() {
   $.ajax({
     type: 'DELETE',
     url: `/list/${taskId}`
-  }).then(function(response){
+  }).then(function (response) {
     showTasks();
-  }).catch(function(error){
+  }).catch(function (error) {
     alert('unable to delete at this time');
   })
 }
