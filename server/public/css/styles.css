@@ -42,6 +42,7 @@ button{
 }
 
 .completedTask{
+    text-decoration: line-through;
     border: 1px solid green;
     border-radius: 10px;
     background-color: lightgreen;

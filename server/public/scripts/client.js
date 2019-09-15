@@ -7,8 +7,18 @@ function onReady() {
 
 // PUT tasks
 function completeTask() {
-  console.log('in completeTask');
-
+  let taskId = $(this).parent().data('id');
+  $.ajax({
+    type: 'PUT',
+    url: `/list/complete/${taskId}`,
+    data: {
+      complete: '1'
+    }
+  }).then(function(response){
+    showTasks();
+  }).catch(function(error){
+    alert('can not complete at this time');
+  })
 }
 
 // DELETE tasks
@@ -18,7 +28,6 @@ function deleteTask() {
     type: 'DELETE',
     url: `/list/${taskId}`
   }).then(function(response){
-    console.log(response);
     showTasks();
   }).catch(function(error){
     alert('unable to delete at this time');
@@ -31,7 +40,6 @@ function showTasks() {
     type: 'GET',
     url: '/list'
   }).then(function (response) {
-    console.log(response);
     // append to DOM
     let el = $('#taskList');
     el.empty();
@@ -55,7 +63,7 @@ function showTasks() {
     $('.deleteBtn').on('click', deleteTask);
     $('.completeBtn').on('click', completeTask);
   }).catch(function (error) {
-    console.log('error in GET', error);
+    alert('unable to show tasks at this time');
   });
 }
 
