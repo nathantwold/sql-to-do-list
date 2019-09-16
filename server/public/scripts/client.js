@@ -2,6 +2,8 @@ $(document).ready(onReady);
 
 function onReady() {
   $('#addTask').on('click', submitTask);
+  $('#taskList').on('click', '.deleteBtn', deleteTask);
+  $('#taskList').on('click', '.completeBtn', completeTask);
   showTasks();
 }
 
@@ -43,25 +45,23 @@ function showTasks() {
     // append to DOM
     let el = $('#taskList');
     el.empty();
-    for (i = 0; i < response.length; i++) {
-      if (response[i].complete == '1') {
+    response.forEach(function(item){
+      if (item.complete == '1') {
         el.append(`
-        <li data-id="${response[i].id}"class="completedTask">${response[i].task}
-        <button class="completeBtn">√</button>
-        <button class="deleteBtn">X</button>
+        <li data-id="${item.id}"class="completedTask">${item.task}
+          <button class="completeBtn">√</button>
+          <button class="deleteBtn">X</button>
         </li>
       `)
       } else {
         el.append(`
-        <li data-id="${response[i].id}" class="newTask">${response[i].task}
-        <button class="completeBtn">√</button>
-        <button class="deleteBtn">X</button>
+        <li data-id="${item.id}" class="newTask">${item.task}
+          <button class="completeBtn">√</button>
+          <button class="deleteBtn">X</button>
         </li>
       `)
       }
-    }
-    $('.deleteBtn').on('click', deleteTask);
-    $('.completeBtn').on('click', completeTask);
+    })
   }).catch(function (error) {
     alert('unable to show tasks at this time');
   });
