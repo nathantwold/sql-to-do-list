@@ -1,7 +1,7 @@
 {
   "name": "sql-to-do-list",
   "version": "1.0.0",
-  "description": "Prime-weekend-project",
+  "description": "Weekend-project #3",
   "main": "server/server.js",
   "dependencies": {
     "body-parser": "^1.19.0",
